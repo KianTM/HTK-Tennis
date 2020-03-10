@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="ClassificationRepository.cs" />
     <Compile Include="Helper.cs" />
+    <Compile Include="MemberRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

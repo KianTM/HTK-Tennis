@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TennisHTK.Entities
 {
-    class Member
+    public class Member
     {
         public int ID { get; set; }
         public string Name 
