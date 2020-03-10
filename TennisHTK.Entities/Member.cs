@@ -66,5 +66,19 @@ namespace TennisHTK.Entities
                     Points = value;
             }
         }
+
+        public string GetClassificationsAsCSV()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var c in Classifications)
+            {
+                sb.Append($"{c.ID.ToString()},");
+            }
+
+            string output = sb.ToString();
+            output.Remove(output.Length - 1, 1);
+            return output;
+        }
     }
 }
