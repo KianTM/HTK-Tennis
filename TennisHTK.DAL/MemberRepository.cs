@@ -15,7 +15,7 @@ namespace TennisHTK.DAL
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("TennisDB")))
             {
-                var output = connection.Query<Member>("dbo.GetAll").ToList();
+                var output = connection.Query<Member>("dbo.Members_GetAll").ToList();
                 return output;
             }
         }
@@ -24,18 +24,56 @@ namespace TennisHTK.DAL
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("TennisDB")))
             {
-                Member output = connection.Query<Member>("dbo.GetSingle @Id", id) as Member;
+                Member output = connection.Query<Member>("dbo.Members_GetSingle @Id", id) as Member;
                 return output;
             }
         }
 
-        public static void Insert(string name, string address, string mobileNumber, string email, DateTime birthdate, List<Classification> classifications, int points)
+        public static void Insert(Member member)
         {
-            //using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("TennisDB")))
-            //{
-            //    connection.Execute("dbo.Member_Insert @Name, @Address, @MobileNumber, @Email, @Birthdate, @Classifications, @Points");
-            //}
-            throw new NotImplementedException();
+            string csv = member.GetClassificationsAsCSV();
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("TennisDB")))
+            {
+                connection.Execute("dbo.Members_Insert @Name, @Address, @MobileNumber, @Email, @Birthdate, @Classifications, @Points", new
+                {
+                    Name = member.Name,
+                    Address = member.Address,
+                    MobileNumber = member.MobileNumber,
+                    Email = member.Email,
+                    Birthdate = member.Birthdate,
+                    Classifications = csv,
+                    Points = member.Points
+                });
+            }
+        }
+
+        public static void Update(Member member)
+        {
+            string csv = member.GetClassificationsAsCSV();
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("TennisDB")))
+            {
+                connection.Execute("dbo.Members_Update @Id, @Name, @Address, @MobileNumber, @Email, @Birthdate, @Classifications, @Points", new
+                {
+                    Id = member.ID,
+                    Name = member.Name,
+                    Address = member.Address,
+                    MobileNumber = member.MobileNumber,
+                    Email = member.Email,
+                    Birthdate = member.Birthdate,
+                    Classifications = csv,
+                    Points = member.Points
+                });
+            }
+        }
+
+        public static void SetActive(int id, bool active)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("TennisDB")))
+            {
+                connection.Execute("dbo.Members_SetActive @Id, @Active", new { Id = id, Active = active });
+            }
         }
     }
 }
