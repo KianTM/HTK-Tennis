@@ -14,7 +14,7 @@ namespace TennisHTK.Entities
             get => Name;
             set
             {
-                if (value.Length > 100)
+                if (value.Length > 50)
                     throw new ArgumentOutOfRangeException();
                 else
                     Name = value;
