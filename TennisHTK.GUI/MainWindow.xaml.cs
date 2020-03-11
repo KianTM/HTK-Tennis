@@ -33,29 +33,31 @@ namespace TennisHTK.GUI
             Classifications = Biz.GetAllClassifications();
             Classifications.Add(new Classification { Name = "-- Opret ny --" });
             classificationComboBox.ItemsSource = Classifications;
+            editClassificationComboBox.ItemsSource = Classifications;
             newClassificationTextBox.IsEnabled = false;
         }
 
         private void addMemberButton_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                Member m = new Member
-                {
-                    Name = nameTextBox.Text,
-                    Address = addressTextBox.Text,
-                    MobileNumber = mobileNumberTextBox.Text,
-                    Email = emailTextBox.Text,
-                    Birthdate = (DateTime)birthdateDatePicker.SelectedDate,
-                    Classifications = NewMemberClassifications,
-                    Points = 50
-                };
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                MessageBox.Show("Der skete en fejl under oprettelse. Sørg for at dataen er indtastet korrekt.", "Fejl", MessageBoxButton.OK);
-                throw;
-            }
+            //try
+            //{
+            //    Member m = new Member
+            //    {
+            //        Name = nameTextBox.Text,
+            //        Address = addressTextBox.Text,
+            //        MobileNumber = mobileNumberTextBox.Text,
+            //        Email = emailTextBox.Text,
+            //        Birthdate = (DateTime)birthdateDatePicker.SelectedDate,
+            //        ListClassifications = NewMemberClassifications,
+            //        Points = 50
+            //    };
+            //}
+            //catch (ArgumentOutOfRangeException)
+            //{
+            //    MessageBox.Show("Der skete en fejl under oprettelse. Sørg for at dataen er indtastet korrekt.", "Fejl", MessageBoxButton.OK);
+            //    throw;
+            //}
+            throw new NotImplementedException();
         }
 
         private void addClassificationButton_Click(object sender, RoutedEventArgs e)
@@ -86,6 +88,59 @@ namespace TennisHTK.GUI
             }
             else
                 newClassificationTextBox.IsEnabled = false;
+        }
+
+        private void editClassificationTextBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Classification c = (sender as ComboBox).SelectedItem as Classification;
+            if (c.Name == "-- Opret ny --")
+            {
+                if (string.IsNullOrWhiteSpace(editNewClassificationTextBox.Text))
+                    editAddClassificationButton.IsEnabled = true;
+                else
+                    editAddClassificationButton.IsEnabled = false;
+
+                editNewClassificationTextBox.IsEnabled = true;
+            }
+            else
+                editNewClassificationTextBox.IsEnabled = false;
+        }
+
+        private void editAddClassificationButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (editNewClassificationTextBox.IsEnabled == true)
+            {
+                Classification c = new Classification { ID = 1, Name = editNewClassificationTextBox.Text };
+                NewMemberClassifications.Add(c);
+                Biz.InsertClassification(editNewClassificationTextBox.Text);
+            }
+            else
+            {
+                NewMemberClassifications.Add(classificationComboBox.SelectedItem as Classification);
+            }
+        }
+
+        private void editMemberButton_Click(object sender, RoutedEventArgs e)
+        {
+            //try
+            //{
+            //    Member m = new Member
+            //    {
+            //        Name = editNameTextBox.Text,
+            //        Address = editAddressTextBox.Text,
+            //        MobileNumber = editMobileNumberTextBox.Text,
+            //        Email = editEmailTextBox.Text,
+            //        Birthdate = (DateTime)editBirthdateDatePicker.SelectedDate,
+            //        Classifications = NewMemberClassifications,
+            //        Points = 50
+            //    };
+            //}
+            //catch (ArgumentOutOfRangeException)
+            //{
+            //    MessageBox.Show("Der skete en fejl under redigering. Sørg for at dataen er indtastet korrekt.", "Fejl", MessageBoxButton.OK);
+            //    throw;
+            //}
+            throw new NotImplementedException();
         }
     }
 }

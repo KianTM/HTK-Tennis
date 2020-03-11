@@ -246,15 +246,16 @@
                   Grid.Column="1"
                   VerticalContentAlignment="Center" />
 
-         <TextBox x:Name="editBirthdateTextBox"
-                  Grid.Row="4"
-                  Grid.Column="1"
-                  VerticalContentAlignment="Center" />
+         <DatePicker x:Name="editBirthdateDatePicker"
+                     Grid.Row="4"
+                     Grid.Column="1"
+                     VerticalContentAlignment="Center" />
 
-         <ComboBox x:Name="editClassificationTextBox"
+         <ComboBox x:Name="editClassificationComboBox"
                    Grid.Row="5"
                    Grid.Column="1"
-                   VerticalContentAlignment="Center" />
+                   VerticalContentAlignment="Center"
+                   SelectionChanged="editClassificationTextBox_SelectionChanged" />
 
          <TextBox x:Name="editNewClassificationTextBox"
                   Grid.Row="5"
@@ -267,13 +268,15 @@
                  Grid.Row="6"
                  Grid.Column="1"
                  Content="Tilføj klassifikation"
-                 Width="120" />
+                 Width="120"
+                 Click="editAddClassificationButton_Click" />
 
          <Button x:Name="editMemberButton"
                  Grid.Row="6"
                  Grid.Column="2"
                  Content="Tilføj til database"
-                 Width="120" />
+                 Width="120"
+                 Click="editMemberButton_Click" />
          <!--#endregion-->
       </Grid>
       

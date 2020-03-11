@@ -71,7 +71,8 @@ namespace TennisHTK.Entities
                 }
             }
         }
-        public List<Classification> Classifications { get; set; }
+        public string Classifications { get; set; }
+        public List<Classification> ListClassifications { get; set; }
         public int Points 
         {
             get => points;
@@ -88,7 +89,7 @@ namespace TennisHTK.Entities
         {
             StringBuilder sb = new StringBuilder();
 
-            foreach (var c in Classifications)
+            foreach (var c in ListClassifications)
             {
                 sb.Append($"{c.ID.ToString()},");
             }

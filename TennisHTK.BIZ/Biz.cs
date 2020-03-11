@@ -61,5 +61,17 @@ namespace TennisHTK.BIZ
 
         public static void DeleteReservation(int id) => ReservationRepository.Delete(id);
         #endregion
+
+        public List<Classification> SeperateClassificationIDs(string IDs)
+        {
+            List<Classification> output = new List<Classification>();
+            string[] seperated = IDs.Split(',');
+            foreach (var i in seperated)
+            {
+                Classification c = Biz.GetSingleClassification(int.Parse(i));
+                output.Add(c);
+            }
+            return output;
+        }
     }
 }
