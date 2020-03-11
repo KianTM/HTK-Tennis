@@ -18,6 +18,22 @@
          <ColumnDefinition Width="3*" />
       </Grid.ColumnDefinitions>
 
+      <Border BorderBrush="Black"
+              BorderThickness="1" />
+      
+      <Border BorderBrush="Black"
+              BorderThickness="1" 
+              Grid.Row="1"/>
+
+      <Border BorderBrush="Black"
+              BorderThickness="1" 
+              Grid.Column="1"/>
+
+      <Border BorderBrush="Black"
+              BorderThickness="1"
+              Grid.Row="1"
+              Grid.Column="1" />
+
       <DataGrid x:Name="membersDataGrid"
                 Margin="5">
 
