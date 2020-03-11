@@ -8,62 +8,79 @@ namespace TennisHTK.Entities
 {
     public class Member
     {
+        private string name;
+        private string address;
+        private string mobileNumber;
+        private string email;
+        private DateTime birthdate;
+        private int points;
+
         public int ID { get; set; }
         public string Name 
         {
-            get => Name;
+            get => name;
             set
             {
                 if (value.Length > 100)
                     throw new ArgumentOutOfRangeException();
                 else
-                    Name = value;
+                    name = value;
             }
         }
         public string Address 
         {
-            get => Name;
+            get => address;
             set
             {
                 if (value.Length > 100)
                     throw new ArgumentOutOfRangeException();
                 else
-                    Name = value;
+                    address = value;
             }
         }
         public string MobileNumber 
         {
-            get => MobileNumber;
+            get => mobileNumber;
             set
             {
                 if (value.Length > 50)
                     throw new ArgumentOutOfRangeException();
                 else
-                    MobileNumber = value;
+                    mobileNumber = value;
             }
         }
         public string Email 
         {
-            get => Email;
+            get => email;
             set
             {
                 if (value.Length > 100)
                     throw new ArgumentOutOfRangeException();
                 else
-                    Email = value;
+                    email = value;
             }
         }
-        public DateTime Birthdate { get; set; }
+        public DateTime Birthdate 
+        {
+            get => birthdate;
+            set
+            {
+                if (value > DateTime.Today)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+            }
+        }
         public List<Classification> Classifications { get; set; }
         public int Points 
         {
-            get => Points;
+            get => points;
             set
             {
                 if (value > 0)
                     throw new ArgumentOutOfRangeException();
                 else
-                    Points = value;
+                    points = value;
             }
         }
 
