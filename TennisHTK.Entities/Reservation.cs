@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TennisHTK.Entities
 {
-    class Reservation
+    public class Reservation
     {
         public int ID { get; set; }
         public Member[] Reservants { get; set; } = new Member[2];
