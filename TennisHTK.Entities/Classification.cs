@@ -22,5 +22,10 @@ namespace TennisHTK.Entities
                     name = value;
             }
         }
+
+        public override string ToString()
+        {
+            return name;
+        }
     }
 }

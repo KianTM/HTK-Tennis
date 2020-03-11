@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TennisHTK.BIZ;
 using TennisHTK.Entities;
 
 namespace TennisHTK.GUI
@@ -22,12 +24,16 @@ namespace TennisHTK.GUI
     public partial class MainWindow : Window
     {
         public List<Member> Members { get; set; }
-        public List<Classification> Classifications { get; set; } = new List<Classification> { new Classification { Name = "-- Opret ny --" } };
-    private List<Classification> NewMemberClassifications { get; set; }
+        public List<Classification> Classifications { get; set; } = new List<Classification>();
+        private List<Classification> NewMemberClassifications { get; set; } = new List<Classification>();
 
         public MainWindow()
         {
             InitializeComponent();
+            Classifications = Biz.GetAllClassifications();
+            Classifications.Add(new Classification { Name = "-- Opret ny --" });
+            classificationComboBox.ItemsSource = Classifications;
+            newClassificationTextBox.IsEnabled = false;
         }
 
         private void addMemberButton_Click(object sender, RoutedEventArgs e)
@@ -55,9 +61,15 @@ namespace TennisHTK.GUI
         private void addClassificationButton_Click(object sender, RoutedEventArgs e)
         {
             if (newClassificationTextBox.IsEnabled == true)
-                NewMemberClassifications.Add(new Classification { Name = newClassificationTextBox.Text });
+            {
+                Classification c = new Classification { ID = 1, Name = newClassificationTextBox.Text };
+                NewMemberClassifications.Add(c);
+                Biz.InsertClassification(newClassificationTextBox.Text);
+            }
             else
+            {
                 NewMemberClassifications.Add(classificationComboBox.SelectedItem as Classification);
+            }
         }
 
         private void classificationComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

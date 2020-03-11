@@ -24,7 +24,7 @@ namespace TennisHTK.DAL
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("TennisDB")))
             {
-                Member output = connection.Query<Member>("dbo.Members_GetSingle @Id", id) as Member;
+                Member output = connection.Query<Member>("dbo.Members_GetSingle @Id", new { Id = id }) as Member;
                 return output;
             }
         }

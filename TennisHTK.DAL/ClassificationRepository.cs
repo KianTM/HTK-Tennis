@@ -24,7 +24,7 @@ namespace TennisHTK.DAL
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("TennisDB")))
             {
-                Classification output = connection.Query<Classification>("dbo.Classifications_GetSingle @Id", id) as Classification;
+                Classification output = connection.Query<Classification>("dbo.Classifications_GetSingle @Id", new { Id = id }) as Classification;
                 return output;
             }
         }
@@ -33,7 +33,7 @@ namespace TennisHTK.DAL
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("TennisDB")))
             {
-                connection.Execute("dbo.Classifications_Insert @Name", name);
+                connection.Execute("dbo.Classifications_Insert @Name", new { Name = name });
             }
         }
 
@@ -41,7 +41,7 @@ namespace TennisHTK.DAL
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("TennisDB")))
             {
-                connection.Execute("dbo.Classifications_Delete @Id", id);
+                connection.Execute("dbo.Classifications_Delete @Id", new { Id = id });
             }
         }
 

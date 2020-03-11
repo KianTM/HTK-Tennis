@@ -53,13 +53,13 @@ namespace TennisHTK.BIZ
         #endregion
 
         #region Reservation
-        public static List<Reservation> GetAll() => ReservationRepository.GetAll();
+        public static List<Reservation> GetAllReservations() => ReservationRepository.GetAll();
 
-        public static Reservation GetSingle(int id) => ReservationRepository.GetSingle(id);
+        public static Reservation GetSingleReservation(int id) => ReservationRepository.GetSingle(id);
 
-        public static void Insert(Reservation reservation) => ReservationRepository.Insert(reservation);
+        public static void InsertReservation(Reservation reservation) => ReservationRepository.Insert(reservation);
 
-        public static void Delete(int id) => ReservationRepository.Delete(id);
+        public static void DeleteReservation(int id) => ReservationRepository.Delete(id);
         #endregion
     }
 }

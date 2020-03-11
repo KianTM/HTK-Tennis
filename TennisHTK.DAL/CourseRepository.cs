@@ -24,7 +24,7 @@ namespace TennisHTK.DAL
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("TennisDB")))
             {
-                var output = connection.Query<Course>("dbo.Courses_GetSingle @Id", id) as Course;
+                var output = connection.Query<Course>("dbo.Courses_GetSingle @Id", new { Id = id }) as Course;
                 return output;
             }
         }
@@ -33,7 +33,7 @@ namespace TennisHTK.DAL
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("TennisDB")))
             {
-                connection.Execute("dbo.Courses_Insert @Name", name);
+                connection.Execute("dbo.Courses_Insert @Name", new { Name = name });
             }
         }
 

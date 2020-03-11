@@ -133,7 +133,6 @@
                    Grid.Row="5"
                    Grid.Column="1"
                    VerticalContentAlignment="Center"
-                   ItemsSource="{Binding Classifications}"
                    SelectionChanged="classificationComboBox_SelectionChanged" />
 
          <TextBox x:Name="newClassificationTextBox"

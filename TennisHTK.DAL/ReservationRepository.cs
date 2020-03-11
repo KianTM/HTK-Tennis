@@ -24,7 +24,7 @@ namespace TennisHTK.DAL
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("TennisDB")))
             {
-                var output = connection.Query<Reservation>("dbo.Reservations_GetSingle @Id", id) as Reservation;
+                var output = connection.Query<Reservation>("dbo.Reservations_GetSingle @Id", new { Id = id }) as Reservation;
                 return output;
             }
         }
@@ -48,7 +48,7 @@ namespace TennisHTK.DAL
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("TennisDB")))
             {
-                connection.Execute("dbo.Reservation_Delete @Id", id);
+                connection.Execute("dbo.Reservation_Delete @Id", new { Id = id });
             }
         }
     }
