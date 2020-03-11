@@ -8,16 +8,18 @@ namespace TennisHTK.Entities
 {
     public class Classification
     {
+        private string name;
+
         public int ID { get; set; }
         public string Name
         {
-            get => Name;
+            get => name;
             set
             {
                 if (value.Length > 50)
                     throw new ArgumentOutOfRangeException();
                 else
-                    Name = value;
+                    name = value;
             }
         }
     }
