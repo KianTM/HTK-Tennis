@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>310</y>
+      <w>200</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>Member
+--
+ID: int
+Name: nvarchar(100)
+Address: nvarchar(100)
+MobileNumber: nvarchar(50)
+Email: nvarchar(100)
+Birthdate: datetime2(7)
+Classifications: varchar(4000)
+Points: int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>570</x>
+      <y>180</y>
+      <w>140</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Classification
+--
+ID: int
+Name: nvarchar(50)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>920</x>
+      <y>380</y>
+      <w>200</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Course
+--
+ID: int
+Name: nvarchar(100)
+UnderRenovation: byte
+RenovationStart: datetime2(7)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>750</x>
+      <y>490</y>
+      <w>160</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Reservation
+--
+ID: int
+Member1ID: int
+Member2ID: int
+CourseID: int
+StartTime: datetime2(7)
+EndTime: datetime2(7)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>620</x>
+      <y>470</y>
+      <w>150</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=2
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0;130.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>900</x>
+      <y>470</y>
+      <w>130</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=</panel_attributes>
+    <additional_attributes>10.0;100.0;110.0;100.0;110.0;10.0</additional_attributes>
+  </element>
+</diagram>
