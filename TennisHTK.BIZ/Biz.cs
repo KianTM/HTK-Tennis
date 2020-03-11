@@ -33,5 +33,33 @@ namespace TennisHTK.BIZ
 
         public static void SetMemberActive(int id, bool active) => MemberRepository.SetActive(id, active);
         #endregion
+
+        #region Course
+        public static List<Course> GetAllCourses() => CourseRepository.GetAll();
+
+        public static Course GetSingleCourse(int id) => CourseRepository.GetSingle(id);
+
+        public static void InsertCourse(string name) => CourseRepository.Insert(name);
+
+        public static void UpdateCourse(int id, string name, DateTime? renovationStart = null)
+        {
+            if (renovationStart != null)
+                CourseRepository.Update(id, name, renovationStart);
+            else
+                CourseRepository.Update(id, name);
+        }
+
+        public static void SetCourseUnderRenovation(int id, bool underRenovation) => CourseRepository.SetUnderRenovation(id, underRenovation);
+        #endregion
+
+        #region Reservation
+        public static List<Reservation> GetAll() => ReservationRepository.GetAll();
+
+        public static Reservation GetSingle(int id) => ReservationRepository.GetSingle(id);
+
+        public static void Insert(Reservation reservation) => ReservationRepository.Insert(reservation);
+
+        public static void Delete(int id) => ReservationRepository.Delete(id);
+        #endregion
     }
 }
