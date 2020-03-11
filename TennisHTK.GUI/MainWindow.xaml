@@ -5,8 +5,330 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TennisHTK.GUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow"
+        Height="450"
+        Width="1000">
+   <Grid Margin="10">
+      <Grid.RowDefinitions>
+         <RowDefinition Height="1*" />
+         <RowDefinition Height="1*" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+         <ColumnDefinition Width="2*" />
+         <ColumnDefinition Width="3*" />
+      </Grid.ColumnDefinitions>
+
+      <Border BorderBrush="Black"
+              BorderThickness="1" />
+      
+      <Border BorderBrush="Black"
+              BorderThickness="1" 
+              Grid.Row="1"/>
+
+      <Border BorderBrush="Black"
+              BorderThickness="1" 
+              Grid.Column="1"/>
+
+      <Border BorderBrush="Black"
+              BorderThickness="1"
+              Grid.Row="1"
+              Grid.Column="1" />
+
+      <DataGrid x:Name="membersDataGrid"
+                Margin="5">
+
+      </DataGrid>
+
+      <!-- NEW -->
+      <Grid Grid.Column="1">
+         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="2*" />
+         </Grid.ColumnDefinitions>
+         <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+         </Grid.RowDefinitions>
+
+         <!--#region Labels-->
+         <Label Grid.Column="2"
+                FontSize="24"
+                Content="Opret"
+                Grid.RowSpan="2"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center" />
+
+         <TextBlock Grid.Row="1"
+                    Grid.Column="2"
+                    Text="Indtast data og tryk 'Tilføj til database' for at tilføje et nyt medlem."
+                    TextWrapping="Wrap"
+                    FontSize="16"
+                    Grid.RowSpan="3"
+                    Margin="10, 10, 10 0" />
+
+         <Label Content="Navn"
+                Grid.Row="0"
+                HorizontalAlignment="Right" />
+
+         <Label Content="Addresse"
+                Grid.Row="1"
+                HorizontalAlignment="Right" />
+
+         <Label Content="Mobilnummer"
+                Grid.Row="2"
+                HorizontalAlignment="Right" />
+
+         <Label Content="Email"
+                Grid.Row="3"
+                HorizontalAlignment="Right" />
+
+         <Label Content="Fødselsdato"
+                Grid.Row="4"
+                HorizontalAlignment="Right" />
+
+         <Label Content="Klassifikationer"
+                Grid.Row="5"
+                HorizontalAlignment="Right" />
+
+         <Label Content="Ny"
+                Grid.Row="5"
+                Grid.Column="2"
+                HorizontalAlignment="Left" />
+         <!--#endregion-->
+
+         <!--#region Functional-->
+         <TextBox x:Name="nameTextBox"
+                  Grid.Row="0"
+                  Grid.Column="1"
+                  VerticalContentAlignment="Center"/>
+
+         <TextBox x:Name="addressTextBox"
+                  Grid.Row="1"
+                  Grid.Column="1"
+                  VerticalContentAlignment="Center"/>
+
+         <TextBox x:Name="mobileNumberTextBox"
+                  Grid.Row="2"
+                  Grid.Column="1"
+                  VerticalContentAlignment="Center"/>
+
+         <TextBox x:Name="emailTextBox"
+                  Grid.Row="3"
+                  Grid.Column="1"
+                  VerticalContentAlignment="Center"/>
+
+         <TextBox x:Name="birthdateTextBox"
+                  Grid.Row="4"
+                  Grid.Column="1"
+                  VerticalContentAlignment="Center" />
+
+         <ComboBox x:Name="classificationTextBox" 
+                   Grid.Row="5"
+                   Grid.Column="1"
+                   VerticalContentAlignment="Center"/>
+
+         <TextBox x:Name="newClassificationTextBox"
+                  Grid.Row="5"
+                  Grid.Column="2"
+                  VerticalContentAlignment="Center"
+                  HorizontalAlignment="Right"
+                  Width="200" />
+
+         <Button x:Name="addClassificationButton"
+                 Grid.Row="6"
+                 Grid.Column="1"
+                 Content="Tilføj klassifikation"
+                 Width="150"/>
+
+         <Button x:Name="addMemberButton"
+                 Grid.Row="6"
+                 Grid.Column="2"
+                 Content="Tilføj til database"
+                 Width="150"/>
+         <!--#endregion-->
+      </Grid>
+
+      <!-- EDIT -->
+      <Grid Grid.Column="0"
+            Grid.Row="1">
+         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="2*" />
+         </Grid.ColumnDefinitions>
+         <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+         </Grid.RowDefinitions>
+
+         <!--#region Labels-->
+         <Label Grid.Column="2"
+                FontSize="24"
+                Content="Rediger"
+                Grid.RowSpan="2"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center" />
+
+         <TextBlock Grid.Row="1"
+                    Grid.Column="2"
+                    Text="Vælg et medlem fra datagrid'et for at redigere dem."
+                    TextWrapping="Wrap"
+                    FontSize="16"
+                    Grid.RowSpan="3"
+                    Margin="10, 10, 10 0"/>
+
+         <Label Content="Navn"
+                Grid.Row="0"
+                HorizontalAlignment="Right" />
+
+         <Label Content="Addresse"
+                Grid.Row="1"
+                HorizontalAlignment="Right" />
+
+         <Label Content="Mobilnr."
+                Grid.Row="2"
+                HorizontalAlignment="Right" />
+
+         <Label Content="Email"
+                Grid.Row="3"
+                HorizontalAlignment="Right" />
+
+         <Label Content="Fødselsdato"
+                Grid.Row="4"
+                HorizontalAlignment="Right" />
+
+         <Label Content="Klassifikationer"
+                Grid.Row="5"
+                HorizontalAlignment="Right" />
+
+         <Label Content="Ny"
+                Grid.Row="5"
+                Grid.Column="2"
+                HorizontalAlignment="Left" />
+         <!--#endregion-->
+
+         <!--#region Functional-->
+         <TextBox x:Name="editNameTextBox"
+                  Grid.Row="0"
+                  Grid.Column="1"
+                  VerticalContentAlignment="Center" />
+
+         <TextBox x:Name="editAddressTextBox"
+                  Grid.Row="1"
+                  Grid.Column="1"
+                  VerticalContentAlignment="Center" />
+
+         <TextBox x:Name="editMobileNumberTextBox"
+                  Grid.Row="2"
+                  Grid.Column="1"
+                  VerticalContentAlignment="Center" />
+
+         <TextBox x:Name="editEmailTextBox"
+                  Grid.Row="3"
+                  Grid.Column="1"
+                  VerticalContentAlignment="Center" />
+
+         <TextBox x:Name="editBirthdateTextBox"
+                  Grid.Row="4"
+                  Grid.Column="1"
+                  VerticalContentAlignment="Center" />
+
+         <ComboBox x:Name="editClassificationTextBox"
+                   Grid.Row="5"
+                   Grid.Column="1"
+                   VerticalContentAlignment="Center" />
+
+         <TextBox x:Name="editNewClassificationTextBox"
+                  Grid.Row="5"
+                  Grid.Column="2"
+                  VerticalContentAlignment="Center"
+                  HorizontalAlignment="Right"
+                  Width="120" />
+
+         <Button x:Name="editAddClassificationButton"
+                 Grid.Row="6"
+                 Grid.Column="1"
+                 Content="Tilføj klassifikation"
+                 Width="120" />
+
+         <Button x:Name="editMemberButton"
+                 Grid.Row="6"
+                 Grid.Column="2"
+                 Content="Tilføj til database"
+                 Width="120" />
+         <!--#endregion-->
+      </Grid>
+      
+      <!-- OTHER -->
+      <Grid Grid.Row="1"
+            Grid.Column="1">
+         <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="1*" />
+         </Grid.RowDefinitions>
+         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+         </Grid.ColumnDefinitions>
+
+         <!--#region Delete-->
+         <Label Content="Slet medlem?"
+                FontSize="24"
+                HorizontalAlignment="Center"/>
+         
+         <TextBlock Text="Et medlem kan restoreres hvis de ønsker at vende tilbage."
+                    TextWrapping="Wrap"
+                    FontSize="16"
+                    HorizontalAlignment="Center"
+                    Margin="0, 35, 0, 0"/>
+
+         <Label Content="Vælg et medlem fra datagrid'et"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Margin="10"/>
+
+         <Button x:Name="deactivateUserButton"
+                 Grid.Row="1"
+                 Margin="10"
+                 Content="Slet bruger"/>
+         <!--#endregion-->
+         
+         <!--#region Restore-->
+         <Label Content="Restorér medlem?"
+                Grid.Column="1"
+                FontSize="24"
+                HorizontalAlignment="Center"/>
+
+         <TextBlock Grid.Column="1"
+                    Text="Et medlem som tidligere er slettet kan restoréres hvis de vender tilage til klubben."
+                    FontSize="16"
+                    TextWrapping="Wrap"
+                    HorizontalAlignment="Center"
+                    Margin="0, 35, 0, 0"/>
+
+         <ComboBox x:Name="restoreMemberComboBox"
+                   Grid.Column="1"
+                   VerticalAlignment="Bottom"
+                   Height="30"
+                   Margin="10"/>
+
+         <Button x:Name="restoreMemberButton"
+                 Grid.Column="1"
+                 Grid.Row="1"
+                 Margin="10"
+                 Content="Restorér bruger"/>
+         <!--#endregion-->
+      </Grid>
+   </Grid>
 </Window>
