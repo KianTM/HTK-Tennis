@@ -18,7 +18,8 @@
          <ColumnDefinition Width="3*" />
       </Grid.ColumnDefinitions>
 
-      <DataGrid x:Name="membersDataGrid">
+      <DataGrid x:Name="membersDataGrid"
+                Margin="5">
 
       </DataGrid>
 
@@ -220,6 +221,67 @@
                  Grid.Column="2"
                  Content="Tilføj til database"
                  Width="120" />
+         <!--#endregion-->
+      </Grid>
+      
+      <!-- OTHER -->
+      <Grid Grid.Row="1"
+            Grid.Column="1">
+         <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="1*" />
+         </Grid.RowDefinitions>
+         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+         </Grid.ColumnDefinitions>
+
+         <!--#region Delete-->
+         <Label Content="Slet medlem?"
+                FontSize="24"
+                HorizontalAlignment="Center"/>
+         
+         <TextBlock Text="Et medlem kan restoreres hvis de ønsker at vende tilbage."
+                    TextWrapping="Wrap"
+                    FontSize="16"
+                    HorizontalAlignment="Center"
+                    Margin="0, 35, 0, 0"/>
+
+         <Label Content="Vælg et medlem fra datagrid'et"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Margin="10"/>
+
+         <Button x:Name="deactivateUserButton"
+                 Grid.Row="1"
+                 Margin="10"
+                 Content="Slet bruger"/>
+         <!--#endregion-->
+         
+         <!--#region Restore-->
+         <Label Content="Restorér medlem?"
+                Grid.Column="1"
+                FontSize="24"
+                HorizontalAlignment="Center"/>
+
+         <TextBlock Grid.Column="1"
+                    Text="Et medlem som tidligere er slettet kan restoréres hvis de vender tilage til klubben."
+                    FontSize="16"
+                    TextWrapping="Wrap"
+                    HorizontalAlignment="Center"
+                    Margin="0, 35, 0, 0"/>
+
+         <ComboBox x:Name="restoreMemberComboBox"
+                   Grid.Column="1"
+                   VerticalAlignment="Bottom"
+                   Height="30"
+                   Margin="10"/>
+
+         <Button x:Name="restoreMemberButton"
+                 Grid.Column="1"
+                 Grid.Row="1"
+                 Margin="10"
+                 Content="Restorér bruger"/>
          <!--#endregion-->
       </Grid>
    </Grid>
