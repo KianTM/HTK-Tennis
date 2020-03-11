@@ -35,7 +35,8 @@
               Grid.Column="1" />
 
       <DataGrid x:Name="membersDataGrid"
-                Margin="5">
+                Margin="5"
+                ItemsSource="{Binding Members}">
 
       </DataGrid>
 
@@ -123,15 +124,17 @@
                   Grid.Column="1"
                   VerticalContentAlignment="Center"/>
 
-         <TextBox x:Name="birthdateTextBox"
-                  Grid.Row="4"
-                  Grid.Column="1"
-                  VerticalContentAlignment="Center" />
+         <DatePicker x:Name="birthdateDatePicker"
+                     Grid.Row="4"
+                     Grid.Column="1"
+                     VerticalContentAlignment="Center" />
 
-         <ComboBox x:Name="classificationTextBox" 
+         <ComboBox x:Name="classificationComboBox" 
                    Grid.Row="5"
                    Grid.Column="1"
-                   VerticalContentAlignment="Center"/>
+                   VerticalContentAlignment="Center"
+                   ItemsSource="{Binding Classifications}"
+                   SelectionChanged="classificationComboBox_SelectionChanged" />
 
          <TextBox x:Name="newClassificationTextBox"
                   Grid.Row="5"
@@ -144,13 +147,18 @@
                  Grid.Row="6"
                  Grid.Column="1"
                  Content="Tilføj klassifikation"
-                 Width="150"/>
+                 Width="150"
+                 Click="addClassificationButton_Click" />
 
          <Button x:Name="addMemberButton"
                  Grid.Row="6"
                  Grid.Column="2"
                  Content="Tilføj til database"
-                 Width="150"/>
+                 Width="150"
+                 Height="28"
+                 Margin="42,0,41,0"
+                 VerticalAlignment="Top"
+                 Click="addMemberButton_Click" />
          <!--#endregion-->
       </Grid>
 
