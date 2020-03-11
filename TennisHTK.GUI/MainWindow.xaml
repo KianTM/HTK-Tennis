@@ -41,6 +41,21 @@
          </Grid.RowDefinitions>
 
          <!--#region Labels-->
+         <Label Grid.Column="2"
+                FontSize="24"
+                Content="Opret"
+                Grid.RowSpan="2"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center" />
+
+         <TextBlock Grid.Row="1"
+                    Grid.Column="2"
+                    Text="Indtast data og tryk 'Tilføj til database' for at tilføje et nyt medlem."
+                    TextWrapping="Wrap"
+                    FontSize="16"
+                    Grid.RowSpan="3"
+                    Margin="10, 10, 10 0" />
+
          <Label Content="Navn"
                 Grid.Row="0"
                 HorizontalAlignment="Right" />
@@ -142,6 +157,21 @@
          </Grid.RowDefinitions>
 
          <!--#region Labels-->
+         <Label Grid.Column="2"
+                FontSize="24"
+                Content="Rediger"
+                Grid.RowSpan="2"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center" />
+
+         <TextBlock Grid.Row="1"
+                    Grid.Column="2"
+                    Text="Vælg et medlem fra datagrid'et for at redigere dem."
+                    TextWrapping="Wrap"
+                    FontSize="16"
+                    Grid.RowSpan="3"
+                    Margin="10, 10, 10 0"/>
+
          <Label Content="Navn"
                 Grid.Row="0"
                 HorizontalAlignment="Right" />
