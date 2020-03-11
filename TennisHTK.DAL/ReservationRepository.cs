@@ -9,7 +9,7 @@ using TennisHTK.Entities;
 
 namespace TennisHTK.DAL
 {
-    class ReservationRepository
+    public class ReservationRepository
     {
         public static List<Reservation> GetAll()
         {
