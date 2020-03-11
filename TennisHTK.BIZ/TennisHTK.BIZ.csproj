@@ -41,10 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Biz.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TennisHTK.DAL\TennisHTK.DAL.csproj">
+      <Project>{B14D2B9F-429A-464D-9708-596B55D64D27}</Project>
+      <Name>TennisHTK.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TennisHTK.Entities\TennisHTK.Entities.csproj">
       <Project>{b75cfa77-2b91-4ef1-b6b0-ce6642c8e5ac}</Project>
       <Name>TennisHTK.Entities</Name>
