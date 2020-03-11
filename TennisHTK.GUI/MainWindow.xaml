@@ -22,6 +22,7 @@
 
       </DataGrid>
 
+      <!-- NEW -->
       <Grid Grid.Column="1">
          <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
@@ -107,10 +108,118 @@
                   HorizontalAlignment="Right"
                   Width="200" />
 
+         <Button x:Name="addClassificationButton"
+                 Grid.Row="6"
+                 Grid.Column="1"
+                 Content="Tilføj klassifikation"
+                 Width="150"/>
+
          <Button x:Name="addMemberButton"
                  Grid.Row="6"
                  Grid.Column="2"
-                 Content="Tilføj"/>
+                 Content="Tilføj til database"
+                 Width="150"/>
+         <!--#endregion-->
+      </Grid>
+
+      <!-- EDIT -->
+      <Grid Grid.Column="0"
+            Grid.Row="1">
+         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="2*" />
+         </Grid.ColumnDefinitions>
+         <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+         </Grid.RowDefinitions>
+
+         <!--#region Labels-->
+         <Label Content="Navn"
+                Grid.Row="0"
+                HorizontalAlignment="Right" />
+
+         <Label Content="Addresse"
+                Grid.Row="1"
+                HorizontalAlignment="Right" />
+
+         <Label Content="Mobilnr."
+                Grid.Row="2"
+                HorizontalAlignment="Right" />
+
+         <Label Content="Email"
+                Grid.Row="3"
+                HorizontalAlignment="Right" />
+
+         <Label Content="Fødselsdato"
+                Grid.Row="4"
+                HorizontalAlignment="Right" />
+
+         <Label Content="Klassifikationer"
+                Grid.Row="5"
+                HorizontalAlignment="Right" />
+
+         <Label Content="Ny"
+                Grid.Row="5"
+                Grid.Column="2"
+                HorizontalAlignment="Left" />
+         <!--#endregion-->
+
+         <!--#region Functional-->
+         <TextBox x:Name="editNameTextBox"
+                  Grid.Row="0"
+                  Grid.Column="1"
+                  VerticalContentAlignment="Center" />
+
+         <TextBox x:Name="editAddressTextBox"
+                  Grid.Row="1"
+                  Grid.Column="1"
+                  VerticalContentAlignment="Center" />
+
+         <TextBox x:Name="editMobileNumberTextBox"
+                  Grid.Row="2"
+                  Grid.Column="1"
+                  VerticalContentAlignment="Center" />
+
+         <TextBox x:Name="editEmailTextBox"
+                  Grid.Row="3"
+                  Grid.Column="1"
+                  VerticalContentAlignment="Center" />
+
+         <TextBox x:Name="editBirthdateTextBox"
+                  Grid.Row="4"
+                  Grid.Column="1"
+                  VerticalContentAlignment="Center" />
+
+         <ComboBox x:Name="editClassificationTextBox"
+                   Grid.Row="5"
+                   Grid.Column="1"
+                   VerticalContentAlignment="Center" />
+
+         <TextBox x:Name="editNewClassificationTextBox"
+                  Grid.Row="5"
+                  Grid.Column="2"
+                  VerticalContentAlignment="Center"
+                  HorizontalAlignment="Right"
+                  Width="120" />
+
+         <Button x:Name="editAddClassificationButton"
+                 Grid.Row="6"
+                 Grid.Column="1"
+                 Content="Tilføj klassifikation"
+                 Width="120" />
+
+         <Button x:Name="editMemberButton"
+                 Grid.Row="6"
+                 Grid.Column="2"
+                 Content="Tilføj til database"
+                 Width="120" />
          <!--#endregion-->
       </Grid>
    </Grid>
